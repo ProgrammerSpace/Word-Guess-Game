@@ -1,0 +1,11 @@
+h1, #res {
+    font-family: 'Lobster', cursive;
+}
+h2, h4, #field {
+    font-family: 'Comfortaa', cursive;
+}
+#actualWord, #field {
+    font-family: 'Lobster', cursive;
+    color: yellow;
+    font-size: 50px;
+}

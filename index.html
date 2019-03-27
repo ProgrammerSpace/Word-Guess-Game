@@ -3,23 +3,59 @@
 
 <head>
     <title>HangmanScratch</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
-    <h1>Hang Man! Guess the word</h1>
-    <p id="field">_ _ _ _ _</p>
-    <p id="guessed">Guessed letters:</p>
-    <p id="tries">Remaining Tries:</p>
-    <h2 id="res">Keep Playing!!</h2>
-    <h2 id="actualWord"></h2>
-    <p id="win">Wins: 0</p>
-    <p id="los">Loses: 0</p>
+<body background="assets/images/bg.jpg" style="color:white">
     <audio id="winningSound">
         <source src="assets/audios/Cheer.mp3" type="audio/mp3">
     </audio>
     <audio id="gameOverSound">
         <source src="assets/audios/Ta_Da.mp3" type="audio/mp3">
     </audio>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-5 text-center">
+                <h1>Hangman</h1>
+                <h3><i>Hit enter to start!</i></h3>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-warning mt-3 float-right">
+                    <div class="card-body text-success font-weight-bolder">
+                        <h5 class="card-title">Score board</h5>
+                        <p id="win">Wins: 0</p>
+                        <p id="los">Loses: 0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card bg-secondary mt-3">
+                    <div class="card-body">
+                        <h1 id="field"></h1>
+                        <h4 id="guessed">Guessed letters:</h4>
+                        <h2 id="tries">Remaining Tries:</h2>
+                        <h2 id="res"></h2>
+                        <h2 id="actualWord"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-secondary mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Hint!!</h5>
+                        <img id="hint" src="assets/images/hint.png" width="300" height="200">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>

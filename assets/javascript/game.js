@@ -25,15 +25,17 @@ function newGame() {
 }
 
 //Update field
-function updateField(input) {
+function update(input, guessListPush) {
     if (!guessL.includes(input)) {
         for (let j = 0; j < word.length; j++) {
             if (input == word[j]) {
                 whatToDisplay[j] = true;
             }
         }
-        guessL.push(input);
-        trii -= 1;
+        if (guessListPush) {
+            guessL.push(input);
+            trii -= 1;
+        }
     }
 }
 
@@ -70,15 +72,17 @@ function gOver() {
 
 //Action Listener
 document.onkeyup = function (event) {
+    var psh = true;
     if (newWordFlag) {
         word = newGame();
         newWordFlag = false;
+        psh = false;
     }
     if (!end) {
         var userInput = event.key;
         userInput = userInput.toLowerCase();
         if (possible.includes(userInput)) {
-            updateField(userInput);
+            update(userInput, psh);
         }
         var newField = newFieldStr();
         field.textContent = newField;

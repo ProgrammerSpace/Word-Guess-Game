@@ -26,15 +26,18 @@ function newGame() {
 
 //Update field
 function update(input, guessListPush) {
-    if (!guessL.includes(input)) {
-        for (let j = 0; j < word.length; j++) {
-            if (input == word[j]) {
-                whatToDisplay[j] = true;
+    if (guessListPush) {
+        if (!guessL.includes(input)) {
+            for (let j = 0; j < word.length; j++) {
+                if (input == word[j]) {
+                    whatToDisplay[j] = true;
+                    guessListPush = false;
+                }
             }
-        }
-        if (guessListPush) {
-            guessL.push(input);
-            trii -= 1;
+            if (guessListPush) {
+                guessL.push(input);
+                trii -= 1;
+            }
         }
     }
 }
@@ -53,7 +56,7 @@ function newFieldStr() {
 
 //User won
 function winwin() {
-    res.textContent = ("You win !! Hit enter to continue");
+    res.textContent = ("You got it !! Hit any key to continue");
     won.play();
     w++;
     newWordFlag = true;
@@ -72,6 +75,7 @@ function gOver() {
 
 //Action Listener
 document.onkeyup = function (event) {
+    console.log(event.key);
     var psh = true;
     if (newWordFlag) {
         word = newGame();

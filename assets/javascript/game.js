@@ -1,17 +1,20 @@
 //Global variables
 var w = 0, l = 0;
-var won = document.getElementById("winningSound");
-var gameOver = document.getElementById("gameOverSound");
-var wordList = {
-    name: ['india', 'italy', 'japan', 'korea', 'sweden', 'spain', 'thailand', 'usa', 'vietnam', 'australia', 'brazil', 'belgium', 'china', 'cuba', 'canada', 'denmark', 'egypt', 'france'],
-    used: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
-};
 var guessL = [];
 var possible = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var end, trii, whatToDisplay, poss;
 var newWordFlag = true;
+//Object for word list
+var wordList = {
+    name: ['india', 'italy', 'japan', 'korea', 'sweden', 'spain', 'thailand', 'usa', 'vietnam', 'australia', 'brazil', 'belgium', 'china', 'cuba', 'canada', 'denmark', 'egypt', 'france'],
+    used: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+};
 
-//Reset for a new game
+//audio
+var won = document.getElementById("winningSound");
+var gameOver = document.getElementById("gameOverSound");
+
+//Reset for a new word
 function newGame() {
     var w, findWord = true;
     do {
@@ -57,6 +60,7 @@ function update(input, guessListPush) {
     }
 }
 
+//Update field string
 function newFieldStr() {
     let tmp = "";
     for (var k = 0; k < word.length; k++) {

@@ -2,7 +2,10 @@
 var w = 0, l = 0;
 var won = document.getElementById("winningSound");
 var gameOver = document.getElementById("gameOverSound");
-var wordList = ['india', 'italy', 'japan', 'korea', 'sweden', 'spain', 'thailand', 'usa', 'vietnam', 'australia', 'brazil', 'belgium', 'china', 'cuba', 'canada', 'denmark', 'egypt', 'france'];
+var wordList = {
+    name: ['india', 'italy', 'japan', 'korea', 'sweden', 'spain', 'thailand', 'usa', 'vietnam', 'australia', 'brazil', 'belgium', 'china', 'cuba', 'canada', 'denmark', 'egypt', 'france'],
+    used: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+};
 var guessL = [];
 var possible = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var end, trii, whatToDisplay, poss;
@@ -10,7 +13,19 @@ var newWordFlag = true;
 
 //Reset for a new game
 function newGame() {
-    var w = wordList[Math.floor(Math.random() * wordList.length)];
+    var w, findWord = true;
+    do {
+        let checkIndex = Math.floor(Math.random() * wordList.name.length);
+        if (wordList.used[checkIndex]) {
+            w = wordList.name[checkIndex];
+            wordList.used[checkIndex] = false;
+            findWord = false;
+        } else if (!wordList.used.includes(true)) {
+            for (let j = 0; j < wordList.used.length; j++) {
+                wordList.used[j] = true;
+            }
+        }
+    } while (findWord);
     end = false;
     trii = 10;
     guessL = [];

@@ -7,7 +7,7 @@ var newWordFlag = true;
 //Object for word list
 var wordList = {
     name: ['india', 'italy', 'japan', 'korea', 'sweden', 'spain', 'thailand', 'usa', 'vietnam', 'australia', 'brazil', 'belgium', 'china', 'cuba', 'canada', 'denmark', 'egypt', 'france'],
-    used: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+    use: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
 };
 
 //audio
@@ -19,13 +19,13 @@ function newGame() {
     var w, findWord = true;
     do {
         let checkIndex = Math.floor(Math.random() * wordList.name.length);
-        if (wordList.used[checkIndex]) {
+        if (wordList.use[checkIndex]) {
             w = wordList.name[checkIndex];
-            wordList.used[checkIndex] = false;
+            wordList.use[checkIndex] = false;
             findWord = false;
-        } else if (!wordList.used.includes(true)) {
-            for (let j = 0; j < wordList.used.length; j++) {
-                wordList.used[j] = true;
+        } else if (!wordList.use.includes(true)) {
+            for (let j = 0; j < wordList.use.length; j++) {
+                wordList.use[j] = true;
             }
         }
     } while (findWord);
